@@ -59,7 +59,9 @@
         </el-header>
         <el-main>
           <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/' }" v-if="$route.name"
+              >首页</el-breadcrumb-item
+            >
             <el-breadcrumb-item>{{ $route.name }}</el-breadcrumb-item>
           </el-breadcrumb>
           <router-view class="main"></router-view>
@@ -87,7 +89,7 @@ export default {
     }),
     esc() {
       this.aUserInfo({});
-      this.$router.push('/login')
+      this.$router.push("/login");
     },
   },
   mounted() {},

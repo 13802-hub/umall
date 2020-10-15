@@ -497,7 +497,7 @@ export const reqBannerInfo = (id) => {
 export const reqBannerEdit = (params) => {
     let data = new FormData();
     for (let i in params) {
-        data.append(i,params[i]);
+        data.append(i, params[i]);
     };
     return axios({
         url: baseUrl + '/api/banneredit',
@@ -510,6 +510,61 @@ export const reqBannerEdit = (params) => {
 export const reqBannerDel = (id) => {
     return axios({
         url: baseUrl + '/api/bannerdelete',
+        method: 'post',
+        data: {
+            id,
+        }
+    })
+}
+
+
+
+/*********************秒杀管理**********************/
+
+// 限时秒杀添加
+
+export const reqSeckAdd = (params) => {
+    return axios({
+        url: baseUrl + '/api/seckadd',
+        method: 'post',
+        data: params,
+    })
+}
+
+
+// 限时秒杀列表 
+
+export const reqSeckList = () => {
+    return axios({
+        url: baseUrl + '/api/secklist',
+    })
+}
+
+
+// 限时秒杀获取一条
+export const reqSeckInfo = (id) => {
+    return axios({
+        url: baseUrl + '/api/seckinfo',
+        params: {
+            id,
+        }
+    })
+}
+
+// 限时秒杀修改 
+
+export const reqSeckEdit = (params) => {
+    return axios({
+        url: baseUrl + '/api/seckedit',
+        method: 'post',
+        data: params,
+    })
+}
+
+
+export const reqSeckDel = (id) => {
+    return axios({
+        url: baseUrl + '/api/seckdelete',
         method: 'post',
         data: {
             id,

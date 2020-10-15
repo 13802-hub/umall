@@ -326,7 +326,7 @@ export default {
     if (this.listCate.length == 0) {
       this.aListCate();
     }
-    if (this.listCate.length == 0) {
+    if (this.listSpecs.length == 0) {
       this.aListSpecs(true);
     }
   },
