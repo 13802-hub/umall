@@ -19,7 +19,7 @@ const mutations = {
         state.page = num;
     }
 }
-
+    
 const actions = {
     aList(context, bool) {
         let params = bool ? {} : { page: context.state.page, size: context.state.size }

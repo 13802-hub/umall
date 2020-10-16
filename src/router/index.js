@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import store from "../store"
 
 
-function chekedEnter(path, next) {
+function checkedEnter(path, next) {
   let menus_url = store.state.userInfo.menus_url;
   if (menus_url.includes(path)) {
     next();
@@ -16,72 +16,72 @@ export let listRouter = [
     path: 'menu',
     name: '菜单管理',
     component: () => import('../pages/menu/menu.vue'),
-    BeforeEnter(to, from, next) {
-      chekedEnter('/menu', next)
+    beforeEnter(to, from, next) {
+      checkedEnter('/menu', next)
     }
   },
   {
     path: 'role',
     name: '角色管理',
     component: () => import('../pages/role/role.vue'),
-    BeforeEnter(to, from, next) {
-      chekedEnter('/role', next)
+    beforeEnter(to, from, next) {
+      checkedEnter('/role', next)
     }
   },
   {
     path: 'manage',
     name: '管理员管理',
     component: () => import('../pages/manage/manage.vue'),
-    BeforeEnter(to, from, next) {
-      chekedEnter('/manage', next)
+    beforeEnter(to, from, next) {
+      checkedEnter('/manage', next)
     }
   },
   {
     path: 'member',
     name: '会员管理',
     component: () => import('../pages/member/member.vue'),
-    BeforeEnter(to, from, next) {
-      chekedEnter('/member', next)
+    beforeEnter(to, from, next) {
+      checkedEnter('/member', next)
     }
   },
   {
     path: 'cate',
     name: '商品分类',
     component: () => import('../pages/cate/cate.vue'),
-    BeforeEnter(to, from, next) {
-      chekedEnter('/cate', next)
+    beforeEnter(to, from, next) {
+      checkedEnter('/cate', next)
     }
   },
   {
     path: 'specs',
     name: '商品规格',
     component: () => import('../pages/specs/specs.vue'),
-    BeforeEnter(to, from, next) {
-      chekedEnter('/specs', next)
+    beforeEnter(to, from, next) {
+      checkedEnter('/specs', next)
     }
   },
   {
     path: 'goods',
     name: '商品管理',
     component: () => import('../pages/goods/goods.vue'),
-    BeforeEnter(to, from, next) {
-      chekedEnter('/goods', next)
+    beforeEnter(to, from, next) {
+      checkedEnter('/goods', next)
     }
   },
   {
     path: 'banner',
     name: '轮播图管理',
     component: () => import('../pages/banner/banner.vue'),
-    BeforeEnter(to, from, next) {
-      chekedEnter('/banner', next)
+    beforeEnter(to, from, next) {
+      checkedEnter('/banner', next)
     }
   },
   {
     path: 'seckill',
     name: '秒杀活动',
     component: () => import('../pages/seckill/seckill.vue'),
-    BeforeEnter(to, from, next) {
-      chekedEnter('/seckill', next)
+    beforeEnter(to, from, next) {
+      checkedEnter('/seckill', next)
     }
   }
 ]
@@ -106,8 +106,11 @@ const router = new Router({
         },
         ...listRouter,
       ]
-
     },
+    {
+      path: '*',
+      redirect: '/'
+    }
   ]
 })
 

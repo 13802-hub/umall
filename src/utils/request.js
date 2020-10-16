@@ -14,7 +14,7 @@ Vue.prototype.http = 'http://localhost:3000';
 
 axios.interceptors.response.use(res => {
     console.group('请求接口为:' + res.config.url)
-    console.log(res);
+    console.log(res.data);
     console.groupEnd();
     if (res.data.msg == '登录已过期或访问权限受限') {
         warningAlert('登录已过期或访问权限受限');

@@ -141,6 +141,8 @@ export default {
     getSecondList() {
       this.form.second_cateid = "";
       this.secondList = [];
+      this.form.goodsid = "";
+      this.goodsList = [];
       this.getCate();
     },
 
@@ -235,7 +237,7 @@ export default {
       if (this.time.length != 0) {
         this.getTime();
       }
-      console.log(this.form);
+      // console.log(this.form);
       reqSeckEdit(this.form).then((res) => {
         if (res.data.code == 200) {
           successAlert(res.data.msg);

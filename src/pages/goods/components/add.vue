@@ -229,7 +229,7 @@ export default {
         warningAlert("商品规格不能为空");
         return false;
       }
-      if (this.form.description == "") {
+      if (this.editor.txt.html() == "") {
         warningAlert("商品描述不能为空");
         return false;
       }
@@ -264,6 +264,7 @@ export default {
         return;
       }
       this.form.description = this.editor.txt.html();
+      console.log(this.editor.txt.html());
       let data = {
         ...this.form,
         specsattr: JSON.stringify(this.form.specsattr),
@@ -287,6 +288,9 @@ export default {
           this.getSecondList();
           this.form.id = id;
           this.form.specsattr = JSON.parse(this.form.specsattr);
+          if (this.editor) {
+            this.editor.txt.html(this.form.description);
+          }
           this.imgUrl = this.http + this.form.img;
           this.getSecondArr();
         } else {
@@ -326,9 +330,8 @@ export default {
     if (this.listCate.length == 0) {
       this.aListCate();
     }
-    if (this.listSpecs.length == 0) {
-      this.aListSpecs(true);
-    }
+
+    this.aListSpecs(true);
   },
 };
 </script>
