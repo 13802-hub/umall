@@ -59,11 +59,20 @@ export default {
 
     checkedData() {
       if (
-        this.form.nikcname == "" ||
+        this.form.nickname == "" ||
         this.form.phone == "" ||
         this.form.password == ""
       ) {
-        warningAlert("昵称,手机号,密码不能为空");
+        warningAlert("信息不能为空");
+        return false;
+      }
+      let reg = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+      if (!reg.test(this.form.phone)) {
+        warningAlert("请填写正确手机号码");
+        return false;
+      }
+      if (!(/^[a-zA-Z0-9_]{3,16}$/).test(this.form.nickname)) {
+        warningAlert("请输入3到16位字符");
         return false;
       }
       return true;

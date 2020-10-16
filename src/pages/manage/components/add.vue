@@ -89,16 +89,16 @@ export default {
         return false;
       }
 
-      if (this.form.username == "" || this.form.password == "") {
-        warningAlert("账户或密码不能为空");
-        return false;
-      }
       return true;
     },
     //添加管理员
     add() {
       if (!this.checkedData()) {
         return;
+      }
+      if (this.form.username == "" || this.form.password == "") {
+        warningAlert("账户或密码不能为空");
+        return false;
       }
       reqUserAdd(this.form).then((res) => {
         if (res.data.code == 200) {
@@ -116,6 +116,10 @@ export default {
     editDetail() {
       if (!this.checkedData()) {
         return;
+      }
+      if (this.form.username == "") {
+        warningAlert("账户不能为空");
+        return false;
       }
       reqUserEdit(this.form).then((res) => {
         if (res.data.code == 200) {

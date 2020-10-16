@@ -160,6 +160,22 @@ export default {
     },
     //`````````````````````````````````````
     checkedData() {
+      if (this.form.title == "") {
+        warningAlert("活动名称不能为空");
+        return false;
+      }
+      if (this.time.length == 0) {
+        warningAlert("活动期限不能为空");
+        return false;
+      }
+      if (
+        this.form.first_cateid == "" ||
+        this.form.second_cateid == "" ||
+        this.form.goodsid == ""
+      ) {
+        warningAlert("活动商品不能为空");
+        return false;
+      }
       return true;
     },
     //添加数据

@@ -37,6 +37,8 @@ export default {
       aUserInfo: "aUserInfo",
     }),
     login() {
+
+      
       reqUserLogin(this.form).then((res) => {
         if (res.data.code == 200) {
           successAlert(res.data.msg);
